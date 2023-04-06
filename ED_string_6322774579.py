@@ -85,17 +85,17 @@ def decryptDigitSeq(d, n, ciphertext):
 def string2BitSeq(a):
     l,m=[],[]
     for i in a:
-        l.append(ord(i))
+        l.append(str(ord(i)).zfill(3))
     for i in l:
-        bitsOfi = bin(i).replace("b","")
+        bitsOfi = bin(int(i)).replace("b","")
         bitsOfi = "0" * (8-len(bitsOfi))+ bitsOfi
         m.append(bitsOfi)
-
+    print(l)
     r = ""
     
     for c in m:
         r = r + c
-
+    
     return r
 
 def encryptString(e, n, plaintext):
